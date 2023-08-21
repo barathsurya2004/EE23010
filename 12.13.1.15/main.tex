@@ -6,7 +6,6 @@
 \usepackage[export]{adjustbox}
 \usepackage{bm}
 \def\inputGnumericTable{} 
-
 \usepackage[latin1]{inputenc}                                 
 \usepackage{color}                                            
 \usepackage{array} 
@@ -22,6 +21,15 @@
 \usepackage{array}                                            %%
 \usepackage{caption} 
 \usepackage{graphicx}
+\usepackage[latin1]{inputenc}                                 
+\usepackage{color}                                            
+\usepackage{array}                                            
+\usepackage{longtable}                                        
+\usepackage{calc}                                             
+\usepackage{multirow}                                         
+\usepackage{hhline}                                           
+\usepackage{ifthen}  
+
 \renewcommand\thesection{\arabic{section}}
 \renewcommand\thesubsection{\thesection.\arabic{subsection}}
 \renewcommand\thesubsubsection{\thesubsection.\arabic{subsubsection}}
@@ -112,14 +120,11 @@ columns=fullflexible
 \maketitle
 Consider the experiment of throwing a die. If a multiple of 3 comes up, throw the die again. If any other number comes up, toss a coin. Find the conditional probability of the event the coin shows a tail, given that  at least one die shows a 3.\\
 \solution
+\begin{table}[ht!]
+	\input{tables/table}
+\end{table}
 Let, the states $S_0$ and $S_1$ describe the outcomes of dice throws.\\
 $S_2$ and $S_3$ describe the outcomes of coin toss.
-\begin{align}
-    S_0 &= \Sigma{\brak{Y=k}} ;k\in{\brak{3,6}}\\
-    S_1 &= \Sigma{\brak{Y=k}} ; k\in{\brak{1,2,4,5}}\\
-    S_2 &= \text{Outcome of coin toss is heads}\\
-    S_3 &= \text{Outcome of coin toss is tails}
-\end{align}
 Conditional Probability is that "The coin shows tails" given that "at least one die shows a 3".
 Since, a Markov chain does not depend on the past outcomes,
 \begin{align}
@@ -140,7 +145,7 @@ And State vector is ,
 \end{align}
 The long term Probability that system will be in each state is called stationary state, and stationary state probability is given as,
 \begin{align}
-    \vec{Px}&=\vec{x}
+            \vec{Px}&=\vec{x}
 \end{align}
 where $\vec{x}$ is steady state probability vector and $\vec{P}$ is the transition probability matrix.\\So,after long time,
 \begin{align}
