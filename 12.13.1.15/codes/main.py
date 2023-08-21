@@ -5,3 +5,4 @@ m=1000
 c=np.linalg.matrix_power(a,m)
 print(np.matmul(b,c))
 
+
