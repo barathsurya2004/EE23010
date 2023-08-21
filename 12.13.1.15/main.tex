@@ -123,11 +123,11 @@ $S_2$ and $S_3$ describe the outcomes of coin toss.
 Conditional Probability is that "The coin shows tails" given that "at least one die shows a 3".
 Since, a Markov chain does not depend on the past outcomes,
 \begin{align}
-    P_{\brak{S_3 | S_0}}&=P_r\brak{X_n=S_3|X_1 =S_0}
+    p_{S_3 | S_0}&=P_r\brak{X_n=S_3|X_1 =S_0}
 \end{align}
 Transition Probability Matrix is given as,
 \begin{align}
-    P&=\myvec{\frac{1}{3}&\frac{2}{3}&0&0\\
+    \vec{P}&=\myvec{\frac{1}{3}&\frac{2}{3}&0&0\\
                 0&0&\frac{1}{2}&\frac{1}{2}\\
                 0&0&1&0\\
                 0&0&0&0
@@ -135,35 +135,35 @@ Transition Probability Matrix is given as,
 \end{align}
 And State vector is ,
 \begin{align}
-    Q_0=\myvec{1&0&0&0}
+    \vec{Q_0}=\myvec{1\\0\\0\\0}
 \end{align}
 Since the chain starts form $S_0$ according to Markov chain.
 The long term Probability that system will be in each state is called stationary state, and stationary state probability is given as,
 \begin{align}
-    A\pi&=\pi
+    \vec{\pi^{\top}A}&=\vec{\pi^{\top}}
 \end{align}
 where $\pi$ is steady state probability vector.\\So,after long time,
 \begin{align}
-    Q_1&=Q_0 P\\
-    Q_2&=Q_1 P \\
+    \vec{Q_1}&=\vec{Q_0^{\top} P}\\
+    \vec{Q_2}&=\vec{Q_1^{\top} P }\\
     \vdots\\
-    Q_{n}&=Q_{n-1} P
+    \vec{Q_{n}}&=\vec{Q_{n-1}^{\top} P}
 \end{align}
 So substituting the state vectors we get,
 \begin{align}
-    Q_{n}&=Q_0 P^{n}\\
+    \vec{Q_{n}}&=\vec{Q_0^{\top} P^{n}}\\
 \end{align}
 applying limits to find the stationary probability vector,
 \begin{align}
-     \lim_{n \to \infty} Q_{n}&=Q_0 P^{n}
+     \lim_{n \to \infty} \vec{Q_{n}}&=\vec{Q_0^{\top} P^{n}}
 \end{align} \label{eq:steady}
 By substituting the values of $Q_0$ and $P$ in the above equation, We get the steady state probability vector as,
 \begin{align}
-    \pi&=\myvec{0&0&\frac{1}{2}&\frac{1}{2}}
+    \vec{\pi}&=\myvec{0\\0\\\frac{1}{2}\\\frac{1}{2}}
 \end{align}
 So, the probability that "coin shows tails" given that "Die shows at least one 3" is,
 \begin{align}
-    p_{\brak{3|1}} &= \frac{1}{2}
+    p_{3|1} &= \frac{1}{2}
 \end{align}
 \begin{figure}[ht!]
     \centering
