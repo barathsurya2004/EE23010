@@ -1,8 +1,11 @@
 import numpy as np 
-a=np.array([[1/3,2/3,0,0],[0,0,1/2,1/2],[0,0,1,0],[0,0,0,1]]) 
+a=np.array([[-2/3,0,0,0],[-4/3,-2,0,0],[1,1,1,0],[1,1,0,1]]) 
+z=np.array([[0,0,0,0],[0,0,0,0],[0,0,1,0],[0,0,0,1]]) 
+a_1=np.linalg.inv(a) 
 b=np.array([1,0,0,0]) 
-m=1000
-c=np.linalg.matrix_power(a,m)
-print(np.matmul(b,c))
-
+# print(a_1) 
+az=np.matmul(a,z) 
+aza_1=np.matmul(az,a_1) 
+print(aza_1) 
+print(np.matmul(aza_1,b.T))
 
