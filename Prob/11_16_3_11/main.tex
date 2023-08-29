@@ -109,10 +109,10 @@ Question 11.16.3.11\\
 The accompanying venn diagram shows three events, A, B and C, and also the probabilities of the various intersections (for instance, $\pr{AB}=0.7$. Determine 
 \begin{enumerate}
 	\item \pr{A}
-	\item \pr{B.C^{c}}
+	\item \pr{BC'}
 	\item \pr{A+B}
-	\item \pr{A.B^{c}}
-	\item \pr{B.C}
+	\item \pr{AB'}
+	\item \pr{BC}
 	\item \text{Probability of exactly one of the three occurs}
 \end{enumerate}
 \begin{figure}[h!]
@@ -129,22 +129,30 @@ The accompanying venn diagram shows three events, A, B and C, and also the proba
 	&=0.2
 	\end{align}
 \item \begin{align}
-	\pr{B.C^{{c}}} &= \pr{B}-\pr{B.C}\\
+	\implies B&=B\brak{C+C'}\\
+	\implies \pr{B}&=\pr{BC+BC'}\\
+	&=\pr{BC}+\pr{BC'}-\pr{BCC'}\\
+	&=\pr{BC}+\pr{BC'}\\
+	\pr{BC'} &= \pr{B}-\pr{BC}\\
 	&=0.07+0.10+0.15-0.15\\
 	&=0.17
 \end{align}
 \item \begin{align}
-	\pr{A+B}&= \pr{A}+\pr{B} -\pr{A.B}\\
+	\pr{A+B}&= \pr{A}+\pr{B} -\pr{AB}\\
 	&=0.20+\brak{0.07+0.10+0.15}-0.07\\
 	&= -0.45
 \end{align} 
 \item \begin{align}
-	\pr{A.B^{c}}&=\pr{A}-\pr{A.B}\\
+	\implies A&=A\brak{B+B'}\\
+	\implies \pr{A}&=\pr{AB+AB'}\\
+	&=\pr{AB}+\pr{AB'}-\pr{ABB'}\\
+	&=\pr{AB}+\pr{AB'}\\
+	\pr{AB'}&=\pr{A}-\pr{AB}\\
 	&=0.20-0.07\\
 	&=0.13
 \end{align}
 \item \begin{align}
-	\pr{B.C}&=0.15
+	\pr{BC}&=0.15
 \end{align} 
 \item \begin{align}
 	\pr{\text{exactly one of the 3 occurs}} &= 0.13+0.10+0.28\\
