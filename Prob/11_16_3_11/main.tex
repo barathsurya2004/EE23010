@@ -125,10 +125,10 @@ The accompanying venn diagram shows three events, A, B and C, and also the proba
 Given:
 \begin{align}
 \pr{AB}=0.07\\
-\pr{A}-\pr{AB}=0.13\\
+\pr{AB'}=0.13\\
 \pr{BC}=0.15\\
-\pr{B}-\pr{AB}-\pr{BC}=0.10\\
-\pr{C}-\pr{CB}=0.28
+\pr{BA'C'}=0.10\\
+\pr{CB'}=0.28
 \end{align}
 \begin{enumerate}
 \item \begin{align}
@@ -136,12 +136,7 @@ Given:
 	&=0.2
 	\end{align}
 \item \begin{align}
-	\implies B&=B\brak{C+C'}\\
-	\implies \pr{B}&=\pr{BC+BC'}\\
-	&=\pr{BC}+\pr{BC'}-\pr{BCC'}\\
-	&=\pr{BC}+\pr{BC'}\\
-	\pr{BC'} &= \pr{B}-\pr{BC}\\
-	&=0.07+0.10+0.15-0.15\\
+	\pr{BC'} &=0.07+0.10+0.15-0.15\\
 	&=0.17
 \end{align}
 \item \begin{align}
@@ -150,19 +145,14 @@ Given:
 	&=0.45
 \end{align} 
 \item \begin{align}
-	\implies A&=A\brak{B+B'}\\
-	\implies \pr{A}&=\pr{AB+AB'}\\
-	&=\pr{AB}+\pr{AB'}-\pr{ABB'}\\
-	&=\pr{AB}+\pr{AB'}\\
-	\pr{AB'}&=\pr{A}-\pr{AB}\\
-	&=0.20-0.07\\
+	\pr{AB'}&=0.20-0.07\\
 	&=0.13
 \end{align}
 \item \begin{align}
 	\pr{BC}&=0.15
 \end{align} 
 \item \begin{align}
-	\pr{\text{exactly one of the 3 occurs}} &= 0.13+0.10+0.28\\
+	\pr{\text{AB'}} +\pr{CB'}+\pr{BA'C'} &= 0.13+0.10+0.28\\
 	&=0.51
 \end{align} 
 \end{enumerate}
