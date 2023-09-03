@@ -1,21 +1,18 @@
-import random
+import numpy as np
 
-def has_consecutive_numbers(lst):
-    for i in range(len(lst) - 2):
-        if lst[i] + 1 == lst[i + 1] and lst[i + 1] + 1 == lst[i + 2]:
-            return True
-    return False
+def count_consecutive_numbers(simulation_length):
+  random_numbers = np.random.randint(1, 21, (simulation_length, 3))
+  random_numbers.sort()
+  consecutive_mask = np.all(np.diff(random_numbers, axis=1) == 1, axis=1)
+  count = np.sum(consecutive_mask)
+  return count
 
-num_trials = 100000 
-count = 0 
+simulation_length = 100000
+count = count_consecutive_numbers(simulation_length)
 
-for _ in range(num_trials):
-    random_numbers = random.sample(range(1, 21), 3) 
-    if has_consecutive_numbers(random_numbers):
-        count += 1
+print(f"Number of trials with consecutive numbers: {count}")
 
-
-probability = count / num_trials
+probability = count / simulation_length
 required= 1-probability
 print(f"Simulated Probability: {required:.4f}")
 
