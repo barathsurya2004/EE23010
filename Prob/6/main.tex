@@ -144,18 +144,30 @@ columns=fullflexible
 Question 12.13.3.6
 Explain why the experiment of tossing a coin three times is said to have binomial distribution
 \\ \solution 
-A random Variable $X$ is said to have a binomial distribution with parameter $n$, $p$ and $q$ $( q=1-p )$
+Let $X$ be discrete random variable which takes values $X \in \cbrak{0,1,2,3 \dots}$ and pmf is
 \begin{align}
-	\pr{X=r}&=\comb{n}{r}p^rq^{n-r} & r\in \cbrak{0,1,2 \dots n}
+	p_i&=\pr{X=i}
+\end{align} 
+Then Expectation is
+\begin{align}
+	E\sbrak{z^X}&=\sum_{i=0}^{\infty}p_i z^i
 \end{align}
-So, in an experiment of tossing a coin 3 times, we have $n=3$ and random variable $X$ can take values $r \in \cbrak{0,1,2,3}$ with $p=\frac{1}{2}$ and $q=\frac{1}{2}$
-\begin{table}[ht!]
-     \centering
-     \input{tables/table.tex}
-     \caption{Random variable table}
-     \label{12_13_3_6}
-\end{table}
-\\$\therefore$ it is said to have a binomial distribution. 
+for 1 trials let $X$ be the event of tossing coin
+\begin{align}
+	E\sbrak{z^X}&=q z^0 + p z^1\\
+	&= q+pz
+\end{align}
+Then for n trials
+\begin{align}
+	E\sbrak{z^X}^n&=\brak{q+pz}^n\\
+	&= \sum_{r=0}^{n} \comb{n}{r}\brak{pz}^r q^{n-r}
+\end{align}
+Now by comparing coefficients
+\begin{align}
+	\pr{X=i}&=\comb{n}{i} p^i \brak{1-p}^{n-i}
+\end{align}
+which is in binomial distribution\\
+$\therefore$ tossing 3 coins has binomial distribution
 \end{document}
 
  
