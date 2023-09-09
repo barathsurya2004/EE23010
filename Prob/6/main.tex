@@ -146,27 +146,31 @@ Explain why the experiment of tossing a coin three times is said to have binomia
 \\ \solution 
 let $X$ be the event of tossing coin and bernoulli distribution is
 \begin{align}
-	X&=\begin{cases}
-		1 & \text{toss is heads ; probability } p\\
-		0 & \text{toss is tails ; probability } q=1-p
+	p_X\brak{k}&=\begin{cases}
+		p & k=0 \\
+		q=1-p & k=1\\
+		0 & otherwise
 	\end{cases}\\
 \end{align}
-Then the Expectation is
+Then the Z transform of X is
 \begin{align}
-	E\sbrak{z^{-X}}&=q z^0 + p z^{-1}\\
+	M_X \brak{z}=E[z^{-X}]&=\sum_{k=-\infty}^{\infty} p_X \brak{k}z^{-k}\\
+	&=q z^0 + p z^{-1}\\
 	&= q+pz^{-1}
 \end{align}
 Then for n trials, the Expectation is
 \begin{align}
-	E\sbrak{z^{-X}}^n&=E\sbrak{p_i}^n\\
-	&=\brak{q+pz^{-1}}^n\\
+	M_X\brak{z}&=\brak{q+pz^{-1}}^n\\
 	&= \sum_{r=0}^{n} \comb{n}{r}\brak{pz^{-1}}^r q^{n-r}
 \end{align}
-Now by getting pmf by comparing coefficients
+Mean of the given distribution is
 \begin{align}
-	\pr{X=i}&=\comb{n}{i} p^i \brak{1-p}^{n-i}
+	E\brak{X}&= \frac{d\brak{q+pz}^n}{dz}|_{z=1}\\
+	&=np\brak{q+pz}^{n-1} |_{z=1}\\
+	&=np\brak{q+p}^{n-1}\\
+	&=np
 \end{align}
-which is in binomial distribution\\
+which is the mean of a binomial distribution\\
 $\therefore$ tossing 3 coins has binomial distribution
 \end{document}
 
