@@ -144,26 +144,21 @@ columns=fullflexible
 Question 12.13.3.6
 Explain why the experiment of tossing a coin three times is said to have binomial distribution
 \\ \solution 
-Let $X$ be discrete random variable which takes values $X \in \cbrak{0,1,2,3 \dots}$ and pmf is
-\begin{align}
-	p_i&=\pr{X=i}
-\end{align} 
-Then Expectation is
-\begin{align}
-	E\sbrak{z^{-X}}&=\sum_{i=0}^{\infty}p_i z^{-i}
-\end{align}
 let $X$ be the event of tossing coin and bernoulli distribution is
 \begin{align}
 	X&=\begin{cases}
 		1 & \text{toss is heads ; probability } p\\
 		0 & \text{toss is tails ; probability } q=1-p
 	\end{cases}\\
+\end{align}
+Then the Expectation is
+\begin{align}
 	E\sbrak{z^{-X}}&=q z^0 + p z^{-1}\\
 	&= q+pz^{-1}
 \end{align}
 Then for n trials, the Expectation is
 \begin{align}
-	E\sbrak{z^{-X}}^n&=E\sbrak{p_i^n}\\
+	E\sbrak{z^{-X}}^n&=E\sbrak{p_i}^n\\
 	&=\brak{q+pz^{-1}}^n\\
 	&= \sum_{r=0}^{n} \comb{n}{r}\brak{pz^{-1}}^r q^{n-r}
 \end{align}
