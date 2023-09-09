@@ -150,19 +150,24 @@ Let $X$ be discrete random variable which takes values $X \in \cbrak{0,1,2,3 \do
 \end{align} 
 Then Expectation is
 \begin{align}
-	E\sbrak{z^X}&=\sum_{i=0}^{\infty}p_i z^i
+	E\sbrak{z^{-X}}&=\sum_{i=0}^{\infty}p_i z^{-i}
 \end{align}
-for 1 trials let $X$ be the event of tossing coin
+let $X$ be the event of tossing coin and bernoulli distribution is
 \begin{align}
-	E\sbrak{z^X}&=q z^0 + p z^1\\
-	&= q+pz
+	X&=\begin{cases}
+		1 & \text{toss is heads ; probability } p\\
+		0 & \text{toss is tails ; probability } q=1-p
+	\end{cases}\\
+	E\sbrak{z^{-X}}&=q z^0 + p z^{-1}\\
+	&= q+pz^{-1}
 \end{align}
-Then for n trials
+Then for n trials, the Expectation is
 \begin{align}
-	E\sbrak{z^X}^n&=\brak{q+pz}^n\\
-	&= \sum_{r=0}^{n} \comb{n}{r}\brak{pz}^r q^{n-r}
+	E\sbrak{z^{-X}}^n&=E\sbrak{p_i^n}\\
+	&=\brak{q+pz^{-1}}^n\\
+	&= \sum_{r=0}^{n} \comb{n}{r}\brak{pz^{-1}}^r q^{n-r}
 \end{align}
-Now by comparing coefficients
+Now by getting pmf by comparing coefficients
 \begin{align}
 	\pr{X=i}&=\comb{n}{i} p^i \brak{1-p}^{n-i}
 \end{align}
