@@ -146,7 +146,7 @@ Explain why the experiment of tossing a coin three times is said to have binomia
 \\ \solution 
 let $X$ be the event of tossing coin and bernoulli distribution is
 \begin{align}
-	p_X\brak{k}&=\begin{cases}
+	\pr{X=k}&=\begin{cases}
 		p & k=0 \\
 		q=1-p & k=1\\
 		0 & otherwise
@@ -158,18 +158,16 @@ Then the Z transform of X is
 	&=q z^0 + p z^{-1}\\
 	&= q+pz^{-1}
 \end{align}
-Then for n trials, the Expectation is
+Then for n trials,
 \begin{align}
-	M_X\brak{z}&=\brak{q+pz^{-1}}^n
+	M_X\brak{z}&=\brak{q+pz^{-1}}^n\\
+	&=\sum_{r=0}^{n} \comb{n}{r} \brak{pz^{-1}}^r q^{n-r}
 \end{align}
-Mean of the given distribution is
+By comparing Coefficients of $z^{-r}$,
 \begin{align}
-	E\brak{X}&= \frac{d\brak{q+pz}^n}{dz}|_{z=1}\\
-	&=np\brak{q+pz}^{n-1} |_{z=1}\\
-	&=np\brak{q+p}^{n-1}\\
-	&=np
+	p_X\brak{r}&= \comb{n}{r} p^r \brak{1-p}^{n-r}
 \end{align}
-which is the mean of a binomial distribution\\
+which is a binomial distribution\\
 $\therefore$ Tossing 3 coins also has a binomial distribution
 \end{document}
 
