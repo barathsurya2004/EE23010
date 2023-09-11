@@ -147,25 +147,26 @@ Explain why the experiment of tossing a coin three times is said to have binomia
 let $X$ be the event of tossing coin and bernoulli distribution is
 \begin{align}
 	\pr{X=k}&=\begin{cases}
-		p & k=0 \\
-		q=1-p & k=1\\
+		q=1-p & k=0 \\
+		p & k=1\\
 		0 & otherwise
 	\end{cases}\\
 \end{align}
 Then the Z transform of X is
 \begin{align}
-	M_X \brak{z}=E[z^{-X}]&=\sum_{k=-\infty}^{\infty} p_X \brak{k}z^{-k}\\
+	M_X \brak{z}=E\sbrak{z^{-X}}&=\sum_{k=-\infty}^{\infty} \pr{X=k}z^{-k}\\
 	&=q z^0 + p z^{-1}\\
 	&= q+pz^{-1}
 \end{align}
 Then for n trials,
 \begin{align}
-	M_X\brak{z}&=\brak{q+pz^{-1}}^n\\
-	&=\sum_{r=0}^{n} \comb{n}{r} \brak{pz^{-1}}^r q^{n-r}
+	M_X\brak{z}&=\brak{pz^{-1}+q}^n\\
+	&=\sum_{k=0}^{n} \comb{n}{k} \brak{pz^{-1}}^k q^{n-k}\\
+	&=\sum_{k=0}^{n} \comb{n}{k} \brak{p}^k \brak{1-p}^{n-k} z^{-k}
 \end{align}
-By comparing Coefficients of $z^{-r}$,
+By comparing Coefficients of $z^{-k}$,
 \begin{align}
-	p_X\brak{r}&= \comb{n}{r} p^r \brak{1-p}^{n-r}
+	p_X\brak{k}&= \comb{n}{k} p^k \brak{1-p}^{n-k} &0 \le k \le n
 \end{align}
 which is a binomial distribution\\
 $\therefore$ Tossing 3 coins also has a binomial distribution
