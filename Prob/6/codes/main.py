@@ -7,6 +7,28 @@ def binomial_distribution(p, n, z):
 
   return probabilities
 
+import random
+from collections import Counter
+
+def toss_coin():
+    return random.choice(['H', 'T'])  
+
+def simulate_experiment(num_tosses):
+    outcomes = [toss_coin() for _ in range(num_tosses)]
+    num_heads = outcomes.count('H')
+    return num_heads
+
+
+num_experiments = 10000
+
+
+results = [simulate_experiment(3) for _ in range(num_experiments)]
+
+head_distribution = dict(Counter(results))
+
+for num_heads, count in sorted(head_distribution.items()):
+    probability = count / num_experiments
+    print(f'Simulated Probability of getting {num_heads} Heads is : {probability:.4f}')
 
 p = 1/2
 n = 3
