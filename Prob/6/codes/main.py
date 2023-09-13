@@ -13,22 +13,22 @@ from collections import Counter
 def toss_coin():
     return random.choice(['H', 'T'])  
 
+
+
 def simulate_experiment(num_tosses):
-    outcomes = [toss_coin() for _ in range(num_tosses)]
+    outcomes = random.choices(['H', 'T'], k=num_tosses)
     num_heads = outcomes.count('H')
     return num_heads
-
-
 num_experiments = 10000
 
 
 results = [simulate_experiment(3) for _ in range(num_experiments)]
 
 head_distribution = dict(Counter(results))
-print("Simulated Probability of getting 3 heads:", head_distribution[0])
-print("Simulated Probability of getting 2 heads:", head_distribution[1])
-print("Simulated Probability of getting 1 head:", head_distribution[2])
-print("Simulated Probability of getting 0 heads:", head_distribution[3])
+print("Simulated Probability of getting 0 heads:", head_distribution[0]/num_experiments)
+print("Simulated Probability of getting 1 head:", head_distribution[1]/num_experiments)
+print("Simulated Probability of getting 2 heads:", head_distribution[2]/num_experiments)
+print("Simulated Probability of getting 3 heads:", head_distribution[3]/num_experiments)
 
 
 p = 1/2
