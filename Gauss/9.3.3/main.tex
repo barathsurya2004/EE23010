@@ -157,12 +157,12 @@ Let X be a Binomial random variable with parameters p and n
 CDF of X
 \begin{align}
 	F_X\brak{n}&=\pr{X \leq n}\\
+	&=\sum_{k=0}^{n}\pr{X=k}\\
 	&=\sum_{k=0}^{n}\comb{10}{k}\brak{0.05}^k\brak{0.95}^{10-k}
 \end{align}
 Since, according to question n here equals,
 \begin{align}
-	\implies F_X\brak{1}&=\pr{X=0} + \pr{X=1}\\
-	&=\sum_{k=0}^{1}\comb{10}{k}\brak{0.05}^k\brak{0.95}^{10-k}\\
+	\implies F_X\brak{1}&=\sum_{k=0}^{1}\comb{10}{k}\brak{0.05}^k\brak{0.95}^{10-k}\\
 	&=0.9138
 \end{align}
 \end{document}
