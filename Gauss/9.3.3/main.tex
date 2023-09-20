@@ -144,27 +144,25 @@ columns=fullflexible
 Question 9.3.3
 There are 5 \% defective items in a large bulk of items. What is the probability that a sample of 10 items will include not more than one defective item ?\\
 \solution\\
-Let $X$ be a bernoulli random variable with parameters n, and p with values
 \begin{align}
 	p&=\frac{5}{100}\\
 	&=0.05\\
 	n&=10
 \end{align}
-\begin{table}[ht!]
-	\centering
-	\input{table/table.tex}
-	\caption{Random variable}
-	\label{gaussian 9.3.3}
-\end{table}
-CDF of $X$ is given by 
+Let X be a Binomial random variable with parameters p and n
+\begin{align}
+	\pr{X=k}&=\comb{n}{k}p^k\brak{1-p}^{n-k}\\
+	&=\comb{10}{k}\brak{0.05}^k\brak{0.95}^{10-k}
+\end{align}
+CDF of X
 \begin{align}
 	F_X\brak{n}&=\pr{X \leq n}\\
-	&=\sum_{k=0}^{n}\comb{n}{k}p^k\brak{1-p}^{n-k}
+	&=\sum_{k=0}^{n}\comb{10}{k}\brak{0.05}^k\brak{0.95}^{10-k}
 \end{align}
-Since, n=1
+Since, according to question n here equals,
 \begin{align}
 	\implies F_X\brak{1}&=\pr{X=0} + \pr{X=1}\\
-	&=\sum_{k=0}^{1}\comb{1}{k}\brak{0.05}^k\brak{0.95}^{1-k}\\
+	&=\sum_{k=0}^{1}\comb{10}{k}\brak{0.05}^k\brak{0.95}^{10-k}\\
 	&=0.9138
 \end{align}
 \end{document}
