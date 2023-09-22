@@ -144,6 +144,7 @@ columns=fullflexible
 Question 9.3.3
 There are 5 \% defective items in a large bulk of items. What is the probability that a sample of 10 items will include not more than one defective item ?\\
 \solution\\
+\textbf{Binomial}
 \begin{align}
 	p&=\frac{5}{100}\\
 	&=0.05\\
@@ -165,6 +166,42 @@ Since, according to question n here equals,
 	\implies F_X\brak{1}&=\sum_{k=0}^{1}\comb{10}{k}\brak{0.05}^k\brak{0.95}^{10-k}\\
 	&=0.9138
 \end{align}
-\end{document}
+\textbf{Gaussian}
+\begin{align}
+	X &\sim Bin\brak{n,p}\\
+	&\sim Bin\brak{10,0.05}
+\end{align}
+Mean and Varience of X are
+\begin{align}
+	\mu_X&=np\\
+	&=0.5\\
+	\sigma^2_X&=np\brak{1-p}\\
+	&=0.475
+\end{align}
+Let, Z be a random variable with mean $\mu_Z=0$ and $\sigma_Z=1$ such that,
+\begin{align}
+	Z&=\frac{X-\mu_X}{\sigma_X}\\
+	&\approx 0.7254
+\end{align}
+Z converges to normal distribution for large value of n
+\begin{align}
+	f\brak{x}&=\frac{1}{\sqrt{2\pi}}e^{-\frac{x^2}{2}}
+\end{align}
+And the Q funtion is defined as,
+\begin{align}
+	\qfunc{x}&=\pr{X>x}
+\end{align}
+We need 
+\begin{align}
+	\pr{Z<x}&=1-\pr{Z>x}\\
+	&=1-\qfunc{x}
+\end{align}
+Upon computation for $Z=0.7254$
+\begin{align}
+	\pr{Z<0.7254}&=1-0.2340\\
+	&=0.7659
+\end{align} 
+Therefore the Gaussian approximation for the given question is 0.766
 
+\end{document}
  
