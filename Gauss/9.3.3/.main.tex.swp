@@ -142,66 +142,70 @@ columns=fullflexible
      \def\midbox#1{\raisebox{-0.5\baselineskip}[0in][0in]{#1}}
 \maketitle
 Question 9.3.3
-There are 5 \% defective items in a large bulk of items. What is the probability that a sample of 10 items will include not more than one defective item ?\\
+Five cards are drawn successively with replacement from well shuffled deck of 52 cards, what is the probability that
+\begin{enumerate}
+	\item all the five cards are spades?
+	\item only 3 cards are spades
+	\item None is a spade
+\end{enumerate}
 \solution\\
-\textbf{Binomial}
+\textbf{Binomial}\\
+Let X be a binomial random variable representing the number of spade cards among the five cards and with the parameters n and p as,
 \begin{align}
-	p&=\frac{5}{100}\\
-	&=0.05\\
-	n&=10
+	n&=5\\
+	p&=\frac{13}{52}\\
+	&=0.25
 \end{align}
-Let X be a Binomial random variable with parameters p and n
+PMF of the distribution is,
 \begin{align}
-	\pr{X=k}&=\comb{n}{k}p^k\brak{1-p}^{n-k}\\
-	&=\comb{10}{k}\brak{0.05}^k\brak{0.95}^{10-k}
+	\pr{X=k}&=\comb{n}{k}p^k\brak{1-p}^{n-k}
 \end{align}
-CDF of X
-\begin{align}
-	F_X\brak{n}&=\pr{X \leq n}\\
-	&=\sum_{k=0}^{n}\pr{X=k}\\
-	&=\sum_{k=0}^{n}\comb{10}{k}\brak{0.05}^k\brak{0.95}^{10-k}
+\begin{enumerate}
+	\item
+	\begin{align}
+	k&=5\\
+	\implies \pr{X=5}&=\comb{5}{5}\brak{0.25}^5\brak{0.75}^0\\
+	&=0.0009765625
 \end{align}
-Since, according to question n here equals,
-\begin{align}
-	\implies F_X\brak{1}&=\sum_{k=0}^{1}\comb{10}{k}\brak{0.05}^k\brak{0.95}^{10-k}\\
-	&=0.9138
+	\item
+	\begin{align}
+	k&=3\\
+	\pr{X=3}&=\comb{5}{3}\brak{0.25}^3\brak{0.75}^2\\
+	&=0.087890625
 \end{align}
-\textbf{Gaussian}
+	\item
+	\begin{align}
+	k&=0\\
+	\pr{X=0}&=\comb{5}{0}\brak{0.25}^0\brak{0.75}^5\\
+	&=0.2373046875
+\end{align}
+\end{enumerate}
+\textbf{Gaussian}\\
 \begin{align}
 	X &\sim Bin\brak{n,p}\\
-	&\sim Bin\brak{10,0.05}
+	&\sim Bin\brak{5,0.25}
 \end{align}
-Mean and Varience of X are
+Mean and varience of X are
 \begin{align}
 	\mu_X&=np\\
-	&=0.5\\
-	\sigma^2_X&=np\brak{1-p}\\
-	&=0.475
+	&=1.25\\
+	\sigma^2_X&=np\brak{1-q}\\
+	&=0.9375
 \end{align}
-Let, Z be a random variable with mean $\mu_Z=0$ and $\sigma_Z=1$ such that,
+Let,Z be a rondom variable with mean $\mu_Z = 0$ and $\sigma_Z=1$, such that,
 \begin{align}
-	Z&=\frac{X-\mu_X}{\sigma_X}\\
-	&\approx 0.7254
+	Z&=\frac{X- \mu_X+0.5}{\sigma_X}
 \end{align}
-Z converges to normal distribution for large value of n
+0.5 is added for correction.\\
+Z caoverges to normal distribution for large value of n
 \begin{align}
 	f\brak{x}&=\frac{1}{\sqrt{2\pi}}e^{-\frac{x^2}{2}}
 \end{align}
-And the Q funtion is defined as,
+And the Q funtion is 
 \begin{align}
-	\qfunc{x}&=\pr{X>x}
+	\qfunc{x}&=\pr{X >x}
 \end{align}
-We need 
-\begin{align}
-	\pr{Z<x}&=1-\pr{Z>x}\\
-	&=1-\qfunc{x}
-\end{align}
-Upon computation for $Z=0.7254$
-\begin{align}
-	\pr{Z<0.7254}&=1-0.2340\\
-	&=0.7659
-\end{align} 
-Therefore the Gaussian approximation for the given question is 0.766
-
+\begin{enumerate}
+	\item all five cards are spades
+\end{enumerate}
 \end{document}
- 
