@@ -180,10 +180,10 @@ Mean and Varience of X are
 \end{align}
 Let, Z be a random variable with mean $\mu_Z=0$ and $\sigma_Z=1$ such that,
 \begin{align}
-	Z&=\frac{X-\mu_X}{\sigma_X}\\
-	&\approx 0.7254
+	Z&=\frac{X-\mu_X +0.5}{\sigma_X}\\
+	&\approx 1.4509
 \end{align}
-Z converges to normal distribution for large value of n
+0.5 is added for correction.\\Z converges to normal distribution for large value of n
 \begin{align}
 	f\brak{x}&=\frac{1}{\sqrt{2\pi}}e^{-\frac{x^2}{2}}
 \end{align}
@@ -196,12 +196,15 @@ We need
 	\pr{Z<x}&=1-\pr{Z>x}\\
 	&=1-\qfunc{x}
 \end{align}
-Upon computation for $Z=0.7254$
+Upon computation for $Z=1.4509$
 \begin{align}
-	\pr{Z<0.7254}&=1-0.2340\\
-	&=0.7659
+	\pr{Z<1.4509}&=1-0.0733\\
+	&=0.9266
 \end{align} 
-Therefore the Gaussian approximation for the given question is 0.766
-
+Therefore the Gaussian approximation for the given question is 0.9266
+\begin{figure}[ht!]
+	\centering
+	\includegraphics[width=\columnwidth]{figs/fig.png}
+\end{figure}
 \end{document}
  
