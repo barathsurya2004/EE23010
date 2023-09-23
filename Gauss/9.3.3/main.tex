@@ -194,18 +194,58 @@ Mean and varience of X are
 \end{align}
 Let,Z be a rondom variable with mean $\mu_Z = 0$ and $\sigma_Z=1$, such that,
 \begin{align}
-	Z&=\frac{X- \mu_X+0.5}{\sigma_X}
+	Z&=\frac{X- \mu_X}{\sigma_X}
 \end{align}
-0.5 is added for correction.\\
 Z caoverges to normal distribution for large value of n
 \begin{align}
 	f\brak{x}&=\frac{1}{\sqrt{2\pi}}e^{-\frac{x^2}{2}}
 \end{align}
 And the Q funtion is 
 \begin{align}
-	\qfunc{x}&=\pr{X >x}
+	\qfunc{x}&=\pr{Z >x}
 \end{align}
 \begin{enumerate}
-	\item all five cards are spades
+	\item 
+	\begin{align}
+		X&=5
+	\end{align}
+	\begin{align}
+	\pr{Z=\frac{X-\mu_X}{\sigma_X}} &\approx \pr{\frac{X+0.5-\mu_X}{\sigma_X} < Z < \frac{X-0.5-\mu_X}{\sigma_X}}\\
+	&\approx \pr{Z<\frac{X+0.5-\mu_X}{\sigma_X}} - \pr{Z<\frac{X-0.5-\mu_X}{\sigma_X}}\\
+	&\approx \pr{Z>\frac{X-0.5-\mu_X}{\sigma_X}} - \pr{Z>\frac{X+0.5-\mu_X}{\sigma_X}}\\
+	&\approx \qfunc{\frac{X-0.5-\mu_X}{\sigma_X}} - \qfunc{\frac{X+0.5-\mu_X}{\sigma_X}}\\
+	&\approx \qfunc{3.356} - \qfunc{4.389}\\
+	&\approx 0.0003888
+	\end{align}
+	\item 
+	\begin{align}
+		X&=3
+	\end{align}
+	\begin{align}
+	\pr{Z=\frac{X-\mu_X}{\sigma_X}} &\approx \pr{\frac{X+0.5-\mu_X}{\sigma_X} < Z < \frac{X-0.5-\mu_X}{\sigma_X}}\\
+	&\approx \pr{Z<\frac{X+0.5-\mu_X}{\sigma_X}} - \pr{Z<\frac{X-0.5-\mu_X}{\sigma_X}}\\
+	&\approx \pr{Z>\frac{X-0.5-\mu_X}{\sigma_X}} - \pr{Z>\frac{X+0.5-\mu_X}{\sigma_X}}\\
+	&\approx \qfunc{\frac{X-0.5-\mu_X}{\sigma_X}} - \qfunc{\frac{X+0.5-\mu_X}{\sigma_X}}\\
+	&\approx \qfunc{1.2909} - \qfunc{2.3237}\\
+	&\approx 0.08828
+	\end{align}
+	\item 
+	\begin{align}
+		X&=0
+	\end{align}
+	\begin{align}
+	\pr{Z=\frac{X-\mu_X}{\sigma_X}} &\approx \pr{\frac{X+0.5-\mu_X}{\sigma_X} < Z < \frac{X-0.5-\mu_X}{\sigma_X}}\\
+	&\approx \pr{Z<\frac{X+0.5-\mu_X}{\sigma_X}} - \pr{Z<\frac{X-0.5-\mu_X}{\sigma_X}}\\
+	&\approx \pr{Z>\frac{X-0.5-\mu_X}{\sigma_X}} - \pr{Z>\frac{X+0.5-\mu_X}{\sigma_X}}\\
+	&\approx \qfunc{\frac{X-0.5-\mu_X}{\sigma_X}} - \qfunc{\frac{X+0.5-\mu_X}{\sigma_X}}\\
+	&\approx \qfunc{-1.8073} - \qfunc{-0.7745}\\
+	&\approx 0.1839
+	\end{align}
 \end{enumerate}
+
+\begin{figure}[ht!]
+	\centering
+	\includegraphics[width=\columnwidth]{figs/fig.png}
+	\caption{Binomial and gaussian distribution}
+\end{figure}
 \end{document}

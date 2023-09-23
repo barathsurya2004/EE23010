@@ -1,18 +1,37 @@
+from scipy.stats import norm
+from scipy.stats import binom
 import numpy as np
+from matplotlib import pyplot as plt
+p = 0.25
+n = 5
+k = 0
+sig = np.sqrt(n*p*(1-p))
+print((((k-0.5)-n*p)/sig),((k+0.5)-n*p)/sig)
+print("Probability from Gaussian approximation: ",norm.cdf(((k+0.5)-n*p)/sig)-norm.cdf((((k-0.5)-n*p)/sig)))
+print("Probability from Binomial: ",(binom.pmf(k,n,p)))
+mean = n*p
+variance = np.sqrt(n*p*(1-p))
 
-def simulate_sample_numpy(prob_defective, sample_size, num_simulations):
-    samples = np.random.choice([0, 1], size=(num_simulations, sample_size), p=[1 - prob_defective, prob_defective])
-    num_defective = np.sum(samples, axis=1)
-    num_successes = np.sum(num_defective <= 1)
-    
-    probability = num_successes / num_simulations
-    return probability
+std_deviation = np.sqrt(variance)
 
-# Parameters
-prob_defective = 0.05  # 5% defective items
-sample_size = 10       # Size of the sample
-num_simulations = 100000  # Number of simulations
+k_values = np.arange(0, n + 1)
 
-result = simulate_sample_numpy(prob_defective, sample_size, num_simulations)
-print(f"simulated probability of not more than one defective item: {result:.4f}")
+binom_pmf = binom.pmf(k_values, n, p)
 
+x = np.linspace(mean - 3 * std_deviation, mean + 3 * std_deviation, 1000)
+
+norm_pdf = norm.pdf(x, loc=mean, scale=std_deviation)
+
+plt.figure(figsize=(10, 6))
+
+plt.bar(k_values, binom_pmf, label=f'Binomial (n={n}, p={p})', alpha=0.6)
+
+plt.plot(x, norm_pdf, label=f'Normal (μ={mean}, σ²={variance})', linewidth=2)
+
+plt.xlabel('X (Number of Successes / X-values)')
+plt.ylabel('Probability / Probability Density')
+plt.title('Comparison of Binomial and Normal Distributions')
+plt.xticks(k_values)
+plt.legend()
+plt.grid(True)
+plt.show()
