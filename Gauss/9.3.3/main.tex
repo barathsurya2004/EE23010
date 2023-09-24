@@ -149,13 +149,13 @@ Five cards are drawn successively with replacement from well shuffled deck of 52
 	\item None is a spade
 \end{enumerate}
 \solution\\
-\textbf{Binomial}\\
 \begin{table}[ht!]
 	\centering
-	\input{table/table1.tex}
+	\input{table/table.tex}
 	\caption{Random variable and Parameter}
-	\label{tab:gausstab1_9.3.3}
+	\label{tab:gausstab2_9.3.3}
 \end{table}
+\textbf{Binomial}\\
 PMF of the distribution is,
 \begin{align}
 	\pr{X=k}&=\comb{n}{k}p^k\brak{1-p}^{n-k}
@@ -181,35 +181,29 @@ PMF of the distribution is,
 \end{align}
 \end{enumerate}
 \textbf{Gaussian}\\
-\begin{table}[ht!]
-	\centering
-	\input{table/table.tex}
-	\caption{Random variable and Parameter}
-	\label{tab:gausstab2_9.3.3}
-\end{table}
+Central limit theroem states that ,Z be a random variable
 \begin{align}
-	X &\sim Bin\brak{n,p}\\
-	&\sim Bin\brak{5,0.25}
+	Z&\approx\frac{X- \mu}{\sigma}
 \end{align}
-
-Let,Y be a random variable such that,
-\begin{align}
-	Y&=\frac{X- \mu_X}{\sigma_X}
-\end{align}
-Y converges to normal distribution for large value of n
+Z converges to normal distribution for large value of n
 \begin{align}
 	f\brak{x}&=\frac{1}{\sqrt{2\pi}}e^{-\frac{x^2}{2}}
 \end{align}
-And Finding CDF using Q funtion by 
+Q function is defined
 \begin{align}
-	\pr{Y >x}&=\qfunc{x}
+	\qfunc{x}=\int_x^{\infty}f\brak{x}dx
 \end{align}
-and for finding \pr{Y=\frac{X-\mu_X}{\sigma_X}} Using approximation,
+then CDF of $X$ is:
 \begin{align}
-	\pr{Y=\frac{X-\mu_X}{\sigma_X}} &\approx \pr{\frac{X+0.5-\mu_X}{\sigma_X} < Y < \frac{X-0.5-\mu_X}{\sigma_X}}\\
-	&\approx \pr{Y<\frac{X+0.5-\mu_X}{\sigma_X}} - \pr{Y<\frac{X-0.5-\mu_X}{\sigma_X}}\\
-	&\approx \pr{Y>\frac{X-0.5-\mu_X}{\sigma_X}} - \pr{Y>\frac{X+0.5-\mu_X}{\sigma_X}}\\
-	&\approx \qfunc{\frac{X-0.5-\mu_X}{\sigma_X}} - \qfunc{\frac{X+0.5-\mu_X}{\sigma_X}}
+	\pr{X<x}&=\int_{-\infty}^x f\brak{x} dx\\
+	&=1-\int_x^{\infty}f\brak{x}dx\\
+	&=1-\qfunc{x}
+\end{align}
+and for finding \pr{Z=\frac{X-\mu}{\sigma}} Using approximation,
+\begin{align}
+	\pr{Z=\frac{X-\mu}{\sigma}} &\approx \pr{\frac{X+0.5-\mu}{\sigma} < Z < \frac{X-0.5-\mu}{\sigma}}\\
+	&\approx \pr{Z<\frac{X+0.5-\mu}{\sigma}} - \pr{Z<\frac{X-0.5-\mu}{\sigma}}\\
+	&\approx \qfunc{\frac{X-0.5-\mu}{\sigma}} - \qfunc{\frac{X+0.5-\mu}{\sigma}}
 \end{align}
 \begin{enumerate}
 	\item 
@@ -217,7 +211,7 @@ and for finding \pr{Y=\frac{X-\mu_X}{\sigma_X}} Using approximation,
 		X&=5
 	\end{align}
 	\begin{align}
-	\pr{Y=3.872}&\approx \qfunc{3.356} - \qfunc{4.389}\\
+	\pr{Z=3.872}&\approx \qfunc{3.356} - \qfunc{4.389}\\
 	&\approx 0.0003888
 	\end{align}
 	\item 
@@ -225,7 +219,7 @@ and for finding \pr{Y=\frac{X-\mu_X}{\sigma_X}} Using approximation,
 		X&=3
 	\end{align}
 	\begin{align}
-	\pr{Y=1.8073}&\approx \qfunc{1.2909} - \qfunc{2.3237}\\
+	\pr{Z=1.8073}&\approx \qfunc{1.2909} - \qfunc{2.3237}\\
 	&\approx 0.08828
 	\end{align}
 	\item 
@@ -233,7 +227,7 @@ and for finding \pr{Y=\frac{X-\mu_X}{\sigma_X}} Using approximation,
 		X&=0
 	\end{align}
 	\begin{align}
-	\pr{Y=-1.2909}&\approx \qfunc{-1.8073} - \qfunc{-0.7745}\\
+	\pr{Z=-1.2909}&\approx \qfunc{-1.8073} - \qfunc{-0.7745}\\
 	&\approx 0.1839
 	\end{align}
 \end{enumerate}

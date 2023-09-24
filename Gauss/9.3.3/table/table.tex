@@ -125,7 +125,7 @@
 \setlength\gnumericTableWidth{%
 	85pt+%
 	105pt+%
-	155pt+%
+	211pt+%
 0pt}
 \def\gumericNumCols{3}
 \setlength\gnumericTableWidthComplete{\gnumericTableWidth+%
@@ -147,7 +147,7 @@
 
 \ifthenelse{\isundefined{\gnumericColA}}{\newlength{\gnumericColA}}{}\settowidth{\gnumericColA}{\begin{tabular}{@{}p{85pt*\gnumericScale}@{}}x\end{tabular}}
 \ifthenelse{\isundefined{\gnumericColB}}{\newlength{\gnumericColB}}{}\settowidth{\gnumericColB}{\begin{tabular}{@{}p{105pt*\gnumericScale}@{}}x\end{tabular}}
-\ifthenelse{\isundefined{\gnumericColC}}{\newlength{\gnumericColC}}{}\settowidth{\gnumericColC}{\begin{tabular}{@{}p{155pt*\gnumericScale}@{}}x\end{tabular}}
+\ifthenelse{\isundefined{\gnumericColC}}{\newlength{\gnumericColC}}{}\settowidth{\gnumericColC}{\begin{tabular}{@{}p{211pt*\gnumericScale}@{}}x\end{tabular}}
 
 \begin{tabular}[c]{%
 	b{\gnumericColA}%
@@ -197,7 +197,15 @@
 \\
 \hhline{|---|}
 	 \multicolumn{1}{|p{\gnumericColA}|}%
-	{\gnumericPB{\centering}\gnumbox{n}}
+	{\gnumericPB{\centering}\gnumbox{$X$}}
+	&\multicolumn{1}{p{\gnumericColB}|}%
+	{\gnumericPB{\centering}\gnumbox{\{0,1,2,3,4,5\}}}
+	&\multicolumn{1}{p{\gnumericColC}|}%
+	{\gnumericPB{\centering}\gnumbox{Number of spade cards drawn}}
+\\
+\hhline{|---|}
+	 \multicolumn{1}{|p{\gnumericColA}|}%
+	{\gnumericPB{\centering}\gnumbox{$n$}}
 	&\multicolumn{1}{p{\gnumericColB}|}%
 	{\gnumericPB{\centering}\gnumbox{5}}
 	&\multicolumn{1}{p{\gnumericColC}|}%
@@ -205,7 +213,7 @@
 \\
 \hhline{|---|}
 	 \multicolumn{1}{|p{\gnumericColA}|}%
-	{\gnumericPB{\centering}\gnumbox{p}}
+	{\gnumericPB{\centering}\gnumbox{$p$}}
 	&\multicolumn{1}{p{\gnumericColB}|}%
 	{\gnumericPB{\centering}\gnumbox{0.25}}
 	&\multicolumn{1}{p{\gnumericColC}|}%
@@ -213,7 +221,7 @@
 \\
 \hhline{|---|}
 	 \multicolumn{1}{|p{\gnumericColA}|}%
-	{\gnumericPB{\centering}\gnumbox{q}}
+	{\gnumericPB{\centering}\gnumbox{$q$}}
 	&\multicolumn{1}{p{\gnumericColB}|}%
 	{\gnumericPB{\centering}\gnumbox{0.75}}
 	&\multicolumn{1}{p{\gnumericColC}|}%
@@ -221,19 +229,19 @@
 \\
 \hhline{|---|}
 	 \multicolumn{1}{|p{\gnumericColA}|}%
-	{\gnumericPB{\centering}\gnumbox{$\mu$=np}}
+	{\gnumericPB{\centering}\gnumbox{$\mu =np$}}
 	&\multicolumn{1}{p{\gnumericColB}|}%
 	{\gnumericPB{\centering}\gnumbox{1.25}}
 	&\multicolumn{1}{p{\gnumericColC}|}%
-	{\gnumericPB{\centering}\gnumbox{Mean of the distribution}}
+	{\gnumericPB{\centering}\gnumbox{Mean of Binomial distribution}}
 \\
 \hhline{|---|}
 	 \multicolumn{1}{|p{\gnumericColA}|}%
-	{\gnumericPB{\centering}\gnumbox{$\sigma^{2}$ =npq}}
+	{\gnumericPB{\centering}\gnumbox{$\sigma^2=npq$}}
 	&\multicolumn{1}{p{\gnumericColB}|}%
 	{\gnumericPB{\centering}\gnumbox{0.9375}}
 	&\multicolumn{1}{p{\gnumericColC}|}%
-	{\gnumericPB{\centering}\gnumbox{Varience of the distribution}}
+	{\gnumericPB{\centering}\gnumbox{Varience of Binomial distribution}}
 \\
 \hhline{|-|-|-|}
 \end{tabular}
