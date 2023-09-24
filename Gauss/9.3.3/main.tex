@@ -192,23 +192,23 @@ PMF of the distribution is,
 	&\sim Bin\brak{5,0.25}
 \end{align}
 
-Let,Z be a random variable with mean $\mu_Z = 0$ and $\sigma_Z=1$, such that,
+Let,Y be a random variable such that,
 \begin{align}
-	Z&=\frac{X- \mu_X}{\sigma_X}
+	Y&=\frac{X- \mu_X}{\sigma_X}
 \end{align}
-Z converges to normal distribution for large value of n
+Y converges to normal distribution for large value of n
 \begin{align}
 	f\brak{x}&=\frac{1}{\sqrt{2\pi}}e^{-\frac{x^2}{2}}
 \end{align}
-And the Q funtion is 
+And Finding CDF using Q funtion by 
 \begin{align}
-	\pr{Z >x}&=\qfunc{x}
+	\pr{Y >x}&=\qfunc{x}
 \end{align}
-and for finding \pr{Z=\frac{X-\mu_X}{\sigma_X}}
+and for finding \pr{Y=\frac{X-\mu_X}{\sigma_X}} Using approximation,
 \begin{align}
-	\pr{Z=\frac{X-\mu_X}{\sigma_X}} &\approx \pr{\frac{X+0.5-\mu_X}{\sigma_X} < Z < \frac{X-0.5-\mu_X}{\sigma_X}}\\
-	&\approx \pr{Z<\frac{X+0.5-\mu_X}{\sigma_X}} - \pr{Z<\frac{X-0.5-\mu_X}{\sigma_X}}\\
-	&\approx \pr{Z>\frac{X-0.5-\mu_X}{\sigma_X}} - \pr{Z>\frac{X+0.5-\mu_X}{\sigma_X}}\\
+	\pr{Y=\frac{X-\mu_X}{\sigma_X}} &\approx \pr{\frac{X+0.5-\mu_X}{\sigma_X} < Y < \frac{X-0.5-\mu_X}{\sigma_X}}\\
+	&\approx \pr{Y<\frac{X+0.5-\mu_X}{\sigma_X}} - \pr{Y<\frac{X-0.5-\mu_X}{\sigma_X}}\\
+	&\approx \pr{Y>\frac{X-0.5-\mu_X}{\sigma_X}} - \pr{Y>\frac{X+0.5-\mu_X}{\sigma_X}}\\
 	&\approx \qfunc{\frac{X-0.5-\mu_X}{\sigma_X}} - \qfunc{\frac{X+0.5-\mu_X}{\sigma_X}}
 \end{align}
 \begin{enumerate}
@@ -217,7 +217,7 @@ and for finding \pr{Z=\frac{X-\mu_X}{\sigma_X}}
 		X&=5
 	\end{align}
 	\begin{align}
-	\pr{Z=3.872}&\approx \qfunc{3.356} - \qfunc{4.389}\\
+	\pr{Y=3.872}&\approx \qfunc{3.356} - \qfunc{4.389}\\
 	&\approx 0.0003888
 	\end{align}
 	\item 
@@ -225,7 +225,7 @@ and for finding \pr{Z=\frac{X-\mu_X}{\sigma_X}}
 		X&=3
 	\end{align}
 	\begin{align}
-	\pr{Z=1.8073}&\approx \qfunc{1.2909} - \qfunc{2.3237}\\
+	\pr{Y=1.8073}&\approx \qfunc{1.2909} - \qfunc{2.3237}\\
 	&\approx 0.08828
 	\end{align}
 	\item 
@@ -233,7 +233,7 @@ and for finding \pr{Z=\frac{X-\mu_X}{\sigma_X}}
 		X&=0
 	\end{align}
 	\begin{align}
-	\pr{Z=-1.2909}&\approx \qfunc{-1.8073} - \qfunc{-0.7745}\\
+	\pr{Y=-1.2909}&\approx \qfunc{-1.8073} - \qfunc{-0.7745}\\
 	&\approx 0.1839
 	\end{align}
 \end{enumerate}
