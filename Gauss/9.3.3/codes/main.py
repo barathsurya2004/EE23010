@@ -6,7 +6,7 @@ p = 0.25
 n = 5
 k = 0
 sig = np.sqrt(n*p*(1-p))
-print((((k-0.5)-n*p)/sig),((k+0.5)-n*p)/sig)
+print((((k-0.5)-n*p)/sig),((k+0.5)-n*p)/sig,((k)-n*p)/sig)
 print("Probability from Gaussian approximation: ",norm.cdf(((k+0.5)-n*p)/sig)-norm.cdf((((k-0.5)-n*p)/sig)))
 print("Probability from Binomial: ",(binom.pmf(k,n,p)))
 mean = n*p
@@ -24,9 +24,9 @@ norm_pdf = norm.pdf(x, loc=mean, scale=std_deviation)
 
 plt.figure(figsize=(10, 6))
 
-plt.bar(k_values, binom_pmf, label=f'Binomial (n={n}, p={p})', alpha=0.6)
+plt.stem(k_values, binom_pmf, basefmt=' ', label=f'Binomial ')
 
-plt.plot(x, norm_pdf, label=f'Normal (μ={mean}, σ²={variance})', linewidth=2)
+plt.plot(x, norm_pdf, label=f'Normal', linewidth=2)
 
 plt.xlabel('X (Number of Successes / X-values)')
 plt.ylabel('Probability / Probability Density')
