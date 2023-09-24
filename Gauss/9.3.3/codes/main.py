@@ -1,37 +1,37 @@
-from scipy.stats import norm
-from scipy.stats import binom
 import numpy as np
-from matplotlib import pyplot as plt
-p = 0.25
-n = 5
-k = 0
-sig = np.sqrt(n*p*(1-p))
-print((((k-0.5)-n*p)/sig),((k+0.5)-n*p)/sig,((k)-n*p)/sig)
-print("Probability from Gaussian approximation: ",norm.cdf(((k+0.5)-n*p)/sig)-norm.cdf((((k-0.5)-n*p)/sig)))
-print("Probability from Binomial: ",(binom.pmf(k,n,p)))
-mean = n*p
-variance = np.sqrt(n*p*(1-p))
+import matplotlib.pyplot as plt
+from scipy.stats import binom, norm
 
-std_deviation = np.sqrt(variance)
+# Parameters for the binomial distribution
+n = 5  # Number of trials
+p = 0.25  # Probability of success
 
-k_values = np.arange(0, n + 1)
+# Parameters for the normal distribution (approximation to binomial)
+mu = n * p
+sigma = np.sqrt(n * p * (1 - p))
 
-binom_pmf = binom.pmf(k_values, n, p)
+# Generate values for x (number of successes in binomial)
+x = np.arange(0, n+1)
 
-x = np.linspace(mean - 3 * std_deviation, mean + 3 * std_deviation, 1000)
+# Compute the PMF of the binomial distribution
+binomial_pmf = binom.pmf(x, n, p)
 
-norm_pdf = norm.pdf(x, loc=mean, scale=std_deviation)
+# Generate values for y (PDF of the normal distribution)
+y = np.linspace(0, n, 1000)
+normal_pdf = norm.pdf(y, loc=mu, scale=sigma)
 
-plt.figure(figsize=(10, 6))
+# Plot the binomial PMF
+plt.stem(x, binomial_pmf, basefmt=" ", markerfmt="bo", linefmt="b-", label='Binomial PMF')
 
-plt.stem(k_values, binom_pmf, basefmt=' ', label=f'Binomial ')
+# Plot the normal PDF (approximation)
+plt.plot(y, normal_pdf, label='Normal PDF')
 
-plt.plot(x, norm_pdf, label=f'Normal', linewidth=2)
-
-plt.xlabel('X (Number of Successes / X-values)')
+# Add labels and legend
+plt.xlabel('Number of Successes')
 plt.ylabel('Probability / Probability Density')
-plt.title('Comparison of Binomial and Normal Distributions')
-plt.xticks(k_values)
 plt.legend()
+
+# Show the plot
+plt.title('Binomial PMF vs. Normal PDF')
 plt.grid(True)
-plt.show()
+plt.savefig("../figs/fig.png")
