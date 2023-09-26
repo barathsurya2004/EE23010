@@ -189,23 +189,20 @@ let $Y$ be a gaussian Random variable
 Due to continuity correction \pr{X=x} can be approximated using gaussian distribution as
 \begin{align}
 	\pr{X=x}&\approx\pr{x-0.5<Y<x+0.5}\\
-	&=\pr{Y<x+0.5}-\pr{Y<x-0.5}	
+	&\approx\pr{Y<x+0.5}-\pr{Y<x-0.5}	\\
+	&\approx F_Y\brak{x+0.5}-F_Y\brak{x-0.5}
 \end{align}
-Standardising Y to $\mu_Y=0$ and $\sigma_Y=1$, the approximation becomes a Normal distribution
+CDF of Y is defined as:
 \begin{align}
-	\pr{X=x}&\approx \pr{Z<\frac{\brak{x+0.5}-np}{\sqrt{npq}}}-\pr{Z<\frac{\brak{x-0.5}-np}{\sqrt{npq}}}
+	F_Y\brak{x}&=\pr{Y<x}\\
+	&=\pr{\frac{Y-\mu}{\sigma}<\frac{x-\mu}{\sigma}}\\
+	\implies \frac{Y-\mu}{\sigma} &\sim N\brak{0,1}\\
+	&=1-\pr{\frac{Y-\mu}{\sigma}>\frac{x-\mu}{\sigma}}\\
+	&=1-\qfunc{\frac{x-\mu}{\sigma}}
 \end{align}
-Q function is defined as
+Then PDF in terms of Q funtion is
 \begin{align}
-	\qfunc{x}=\int_x^{\infty}f\brak{x}dx
-\end{align}
-then CDF of Normal distribution is defined as:
-\begin{align}
-	\pr{Z<x}&=\int_{-\infty}^x f\brak{x} dx\\
-	&=1-\int_x^{\infty}f\brak{x}dx\\
-	&=1-\qfunc{x}\\
-	\implies \pr{X=x} &\approx \brak{1-\qfunc{\frac{\brak{x+0.5}-np}{\sqrt{npq}}}} - \brak{1-\qfunc{\frac{\brak{x-0.5}-np}{\sqrt{npq}}}}\\
-	&\approx \qfunc{\frac{\brak{x-0.5}-np}{\sqrt{npq}}} -\qfunc{\frac{\brak{x+0.5}-np}{\sqrt{npq}}}
+	\pr{X=x}&\approx \qfunc{\frac{\brak{x-0.5}-\mu}{\sigma}}-\qfunc{\frac{\brak{x+0.5}-\mu}{\sigma}}
 \end{align}
 \begin{enumerate}
 	\item 
