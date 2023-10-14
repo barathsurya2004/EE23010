@@ -159,7 +159,8 @@ we know that
 \begin{align}
 	E\brak{A|B}&=\frac{E\brak{A,B}}{\pr{B}}\\
 	\implies E\brak{\cond{\frac{1}{1+X}}{X>0}} &=\frac{\sum_{k=1}^{\infty}\frac{1}{k+1}\pr{X=k}}{\pr{X>0}}\\
-	&=\frac{\sum_{k=1}^{\infty}\frac{1}{k+1} e^{-\lambda}\frac{\lambda^k}{k!}}{1-\pr{X=0}}\\
+	&=\frac{\sum_{k=1}^{\infty}\frac{1}{k+1} e^{-\lambda}\frac{\lambda^k}{k!}}{1-\pr{X\leq 0}}\\
+	&=\frac{e^{-\lambda}\sum_{k=1}^{\infty}\frac{\lambda^k}{\brak{k+1}!}}{1-\pr{X=0}}\\
 	&=\frac{e^{-\lambda}\sum_{k=1}^{\infty}\frac{\lambda^k}{\brak{k+1}!}}{1-e^{\lambda}}
 \end{align}
 let $k+1=m$,
