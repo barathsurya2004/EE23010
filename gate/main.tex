@@ -153,18 +153,19 @@ Question Let $X$ be a random variable having poisson distribution with mean $\la
 \\
 \begin{align}
 	X&\sim Pois\brak{\lambda}\\
-	\pr{X=k}&=e^{-\lambda} \frac{\lambda^k}{k!}
+	\pr{X=k}&=e^{-\lambda} \frac{\lambda^k}{k!}; k \geq 0
 \end{align}
 we know that 
 \begin{align}
-	\pr{A|B}&=\frac{\pr{AB}}{\pr{B}}\\
-	\implies E\brak{\cond{\frac{1}{1+X}}{X>0}} &=\frac{\sum_{k=1}^{\infty}\frac{1}{k+1}\pr{X=k}}{1-e^{\lambda}}\\
-	&=\frac{\sum_{k=1}^{\infty}\frac{1}{k+1} e^{-\lambda}\frac{\lambda^k}{k!}}{1-e^{\lambda}}\\
-	&=\frac{e^{-\lambda}\sum_{k=1}^{\infty}\frac{\lambda}{\brak{k+1}!}}{1-e^{\lambda}}
+	E\brak{A|B}&=\frac{E\brak{A,B}}{\pr{B}}\\
+	\implies E\brak{\cond{\frac{1}{1+X}}{X>0}} &=\frac{\sum_{k=1}^{\infty}\frac{1}{k+1}\pr{X=k}}{\pr{X>0}}\\
+	&=\frac{\sum_{k=1}^{\infty}\frac{1}{k+1} e^{-\lambda}\frac{\lambda^k}{k!}}{1-\pr{X=0}}\\
+	&=\frac{e^{-\lambda}\sum_{k=1}^{\infty}\frac{\lambda^k}{\brak{k+1}!}}{1-e^{\lambda}}
 \end{align}
-using taylor series expansion of $e$
+let $k+1=m$,
 \begin{align}
-	&=\frac{e^{-\lambda}}{\lambda \brak{1-e^{\lambda}}}\brak{\sum_{k=0}^{\infty}\frac{\lambda^k}{k!} -1 -\lambda}\\
+	&=\frac{e^{-\lambda}}{ \brak{1-e^{\lambda}}}\brak{\sum_{m=2}^{\infty}\frac{\lambda^{m-1}}{m!}}\\
+	&=\frac{e^{-\lambda}}{\lambda \brak{1-e^{\lambda}}}\brak{\sum_{m=0}^{\infty}\frac{\lambda^{m}}{m!} -1 -\lambda}\\
 	&=\frac{e^{-\lambda}}{\lambda \brak{1-e^{\lambda}}}\brak{e^{\lambda}-1 -\lambda}\\
 	&=\frac{1-e^{-\lambda}-\lambda e^{-\lambda}}{\lambda \brak{1-e^{\lambda}}}
 \end{align}
