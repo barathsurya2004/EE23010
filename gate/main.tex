@@ -1,4 +1,4 @@
-\documentclass[journal,11pt,onecolumn]{IEEEtran}
+\documentclass[journal,11pt,twocolumn]{IEEEtran}
 \usepackage{setspace}
 \usepackage{gensymb}
 \singlespacing
@@ -151,25 +151,53 @@ Question Let $X$ be a random variable having poisson distribution with mean $\la
 
 \solution
 \\
+\begin{enumerate}[label=(\Alph*)]
+	\item Theory
 \begin{align}
 	X&\sim Pois\brak{\lambda}\\
-	\pr{X=k}&=e^{-\lambda} \frac{\lambda^k}{k!}; k \geq 0
+	\pr{X=k}&=e^{-\lambda} \frac{\lambda^k}{k!}; k \geq 0 \label{eq:poissondistributionpmf}
 \end{align}
 we know that 
 \begin{align}
 	E\brak{A|B}&=\frac{E\brak{A,B}}{\pr{B}}\\
 	\implies E\brak{\cond{\frac{1}{1+X}}{X>0}} &=\frac{\sum_{k=1}^{\infty}\frac{1}{k+1}\pr{X=k}}{\pr{X>0}}\\
 	&=\frac{\sum_{k=1}^{\infty}\frac{1}{k+1} e^{-\lambda}\frac{\lambda^k}{k!}}{1-\pr{X\leq 0}}\\
-	&=\frac{e^{-\lambda}\sum_{k=1}^{\infty}\frac{\lambda^k}{\brak{k+1}!}}{1-\pr{X=0}}\\
+	&=\frac{e^{-\lambda}\sum_{k=1}^{\infty}\frac{\lambda^k}{\brak{k+1}!}}{1-\pr{X=0}}
+\end{align}
+from equation \eqref{eq:poissondistributionpmf}
+\begin{align}
 	&=\frac{e^{-\lambda}\sum_{k=1}^{\infty}\frac{\lambda^k}{\brak{k+1}!}}{1-e^{\lambda}}
 \end{align}
-let $k+1=m$,
+Now simplifying Just the Summation
 \begin{align}
-	&=\frac{e^{-\lambda}}{ \brak{1-e^{\lambda}}}\brak{\sum_{m=2}^{\infty}\frac{\lambda^{m-1}}{m!}}\\
-	&=\frac{e^{-\lambda}}{\lambda \brak{1-e^{\lambda}}}\brak{\sum_{m=0}^{\infty}\frac{\lambda^{m}}{m!} -1 -\lambda}\\
+	\implies & \sum_{k=1}^{\infty} \frac{\lambda^k}{\brak{k+1}!}\\
+	&=\frac{1}{\lambda} \sum_{k=1}^{\infty} \frac{\lambda^{k+1}}{k+1}
+\end{align}
+Letting $k+1 =m $,
+\begin{align}
+	\implies & \frac{1}{\lambda} \sum_{m=2}^{\infty} \frac{\lambda^m}{m!}
+\end{align}
+We Know from Taylor series
+\begin{align}
+	e^x&=\sum_{k=0}^{\infty} \frac{x^k}{k!}\\
+	\implies \frac{1}{\lambda} \sum_{m=2}^{\infty} \frac{\lambda^m}{m!}&= \frac{1}{\lambda}\brak{e^{\lambda}-1-\lambda}
+\end{align}
+Substituting back we get,
+\begin{align}
+	&=\frac{e^{-\lambda}}{ \brak{1-e^{\lambda}}}\brak{\frac{1}{\lambda} \brak{e^{\lambda}-1-\lambda}}\\
 	&=\frac{e^{-\lambda}}{\lambda \brak{1-e^{\lambda}}}\brak{e^{\lambda}-1 -\lambda}\\
 	&=\frac{1-e^{-\lambda}-\lambda e^{-\lambda}}{\lambda \brak{1-e^{\lambda}}}
 \end{align}
+\item Simulation\\
+\begin{enumerate}[label=(\roman*)]
+	\item Generate a Random Poisson variable $X$ and initialized to 0. Calculate the probability $p$ for $X=0$ which is $e^{-\lambda}$. Calculate the cumulative distribution funtion $F$ for $X=0$, inititally set to $p$.
+	\item Generate a random number U between 0 and 1 by dividing (double)rand() by RAND\_MAX.
+	While $U$ is greater than $F$, iterate and calculate $X$.Update $p$ and $F$ to calculate the cumulative distribution for increasing values of $X$.
+	\item Check if the generated value of $X$ is greater than 0. If $X$ is greater than 0, calculate the value $Y$ as $\frac{1}{X + 1}$ and add it to the sumY.
+
+
+\end{enumerate}
+\end{enumerate}
 \end{document}
 
  
