@@ -193,8 +193,8 @@ Substituting back we get,
 	\item Generate a Random Poisson variable $X$ and initialized to 0. Calculate the probability $p$ for $X=0$ which is $e^{-\lambda}$. Calculate the cumulative distribution funtion $F$ for $X=0$, inititally set to $p$.
 	\item Generate a random number U between 0 and 1 by dividing (double)rand() by RAND\_MAX.
 	While $U$ is greater than $F$, iterate and calculate $X$.Update $p$ and $F$ to calculate the cumulative distribution for increasing values of $X$.
-	\item Check if the generated value of $X$ is greater than 0. If $X$ is greater than 0, calculate the value $Y$ as $\frac{1}{X + 1}$ and add it to the sumY.
-
+	\item Check if the generated value of $X$ is greater than 0. If $X$ is greater than 0, calculate the value $Y$ as $\frac{1}{X + 1}$ and add it to the sumY.Increment the validCount to keep track of valid $X$ values.
+	\item If validCount is greater than 0, calculate the  estimate of the conditional expectation by dividing sumY by validCount.
 
 \end{enumerate}
 \end{enumerate}
