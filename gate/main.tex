@@ -190,9 +190,10 @@ Substituting back we get,
 \end{align}
 \item Simulation\\
 \begin{enumerate}[label=(\roman*)]
-	\item Generate a Random Poisson variable $X$ and initialized to 0. Calculate the probability $p$ for $X=0$ which is $e^{-\lambda}$. Calculate the cumulative distribution funtion $F$ for $X=0$, inititally set to $p$.
-	\item Generate a random number U between 0 and 1 by dividing (double)rand() by RAND\_MAX.
-	While $U$ is greater than $F$, iterate and calculate $X$.Update $p$ and $F$ to calculate the cumulative distribution for increasing values of $X$.
+	\item Generate a Random Poisson variable $X$ and initialized to 0. Calculate the probability $pp$ for $X=0$ which is $e^{-\lambda}$. 
+	\item Generate a random number u between 0 and 1 by dividing (double)rand() by RAND\_MAX.
+	While $u$ is greater than $pp$, iterate and calculate $X$.Update $pp$ according to poisson distribution to calculate the cumulative distribution for increasing values of $X$.
+	\item When $u$ does not meet the condition the value of Poisson random variable $X$ is found.
 	\item Check if the generated value of $X$ is greater than 0. If $X$ is greater than 0, calculate the value $Y$ as $\frac{1}{X + 1}$ and add it to the sumY.Increment the validCount to keep track of valid $X$ values.
 	\item If validCount is greater than 0, calculate the  estimate of the conditional expectation by dividing sumY by validCount.
 
