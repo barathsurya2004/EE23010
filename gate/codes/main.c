@@ -2,18 +2,8 @@
 #include <stdlib.h>
 #include <math.h>
 #include <time.h>
-
-int main() {
-    double l = 9; // Change l to your desired mean
-
-    int n = 100000; // Number of simulations
-    int validCount = 0; // Count of valid X values (X > 0)
-    double sumY = 0.0; // Sum of 1 / (X + 1)
-
-    srand(time(0)); // Seed the random number generator
-
-    for (int i = 0; i < n; i++) {
-        double el = exp(-l);  //defining e^l
+int Poisson(int l){
+    double el = exp(-l);  //defining e^l
         double pp = el;         //initialising p(X=0)
         double u = (double)rand() / RAND_MAX;   //generating uniform random variable
         int X = 0;          //initialising poisson random variable
@@ -26,6 +16,20 @@ int main() {
             pow *= l;
             pp += (pow / fact) * el; //going up poisson random variable by one step every time
         }
+        return X;
+}
+
+int main() {
+    double l = 9; // Change l to your desired mean
+
+    int n = 100000; // Number of simulations
+    int validCount = 0; // Count of valid X values (X > 0)
+    double sumY = 0.0; // Sum of 1 / (X + 1)
+
+    srand(time(0)); // Seed the random number generator
+
+    for (int i = 0; i < n; i++) {
+        int X = Poisson(l);
 //when found out the poisson random variable in which urv was lieing in we break out of the loop
         if (X > 0) { //checking the question conditions
             double Y = 1.0 / (X + 1);
