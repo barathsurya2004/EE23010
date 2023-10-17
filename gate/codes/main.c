@@ -9,6 +9,7 @@ int Poisson(int l){
         int X = 0;          //initialising poisson random variable
         double fact = 1;    //(numerator)factorial part in pmf
         double pow = 1;     //(denominator)power part in pmf
+        //pmf is as in equation (2)
 
         while (u > pp) { //checking which part of poisson distribution urv is lieing in 
             X++;
@@ -45,7 +46,7 @@ int main() {
         printf("No valid X values (X > 0) were generated.\n");
     }
 
-    double formulaans = (1 - exp(-l) - l * exp(-l)) / (l * (1 - exp(-l))); //formula mean we found by theory
+    double formulaans = (1 - exp(-l) - l * exp(-l)) / (l * (1 - exp(-l))); //formula mean we found by theory equation (15)
     printf("Formula-based answer: %lf\n", formulaans);
 
     return 0;
