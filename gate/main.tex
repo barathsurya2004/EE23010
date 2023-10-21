@@ -190,10 +190,18 @@ Substituting back we get,
 \end{align}
 \item Simulation\\
 \begin{enumerate}[label=(\roman*)]
-	\item Initialize a Random variable $X$ and equate to 0. Calculate the probability $pp$ for $X=0$ which is $e^{-\lambda} $ from equation \eqref{eq:poissondistributionpmf}.
-	\item Generate a Uniform random variable $U$ between 0 and 1 by dividing (double)rand() by RAND\_MAX.
-	\item While $U$ is greater than $pp$, iterate and Increase $X$ by value of 1.Update $pp$ according to poisson distribution to calculate the cumulative distribution for increasing values of $X$.
-	\item When $U$ does not meet the condition the value of random variable $X$ is found and is a Poisson random variable.
+	\item In the code, it simulates the generation of RV $X$ using the CDF of Poisson distribution.\\
+	\begin{align}
+		F\brak{x}&=\sum_{k=0}^{x}e^{-\lambda}\frac{\lambda^k}{k!}
+	\end{align}
+	\item initialize $X=0$
+	\item initialize $F=e^{-\lambda}$ which is $F\brak{0}$ of a poisson distribution
+	\item generate a uniform random variable between 0 and 1
+	\item enter the loop that continues as long as $u>F$\\
+	Inside the loop,
+	\item Increment $X$ by 1
+	\item Add next term of Poisson pmf $\brak{\pr{X=k+1}}$ to $F\brak{x}$
+	\item the loop continues until $u$ is no longer greater than $F$. At this point, X represents the generated value of the poisson random variable that follows the desired poisson distribution with mean parameter $\lambda$.
 	\item Then for the second part Check if the generated value of $X$ is greater than 0. If $X$ is greater than 0, calculate the value $Y$ as $\frac{1}{X + 1}$ and add it to the sumY.Increment the validCount to keep track of valid $X$ values.
 	\item If validCount is greater than 0, calculate the  estimate of the conditional expectation by dividing sumY by validCount.
 

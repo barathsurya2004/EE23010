@@ -4,18 +4,18 @@
 #include <time.h>
 int Poisson(int l){
     double el = exp(-l);  //defining e^l
-        double pp = el;         //initialising p(X=0)
+        double F = el;         //initialising p(X=0)
         double u = (double)rand() / RAND_MAX;   //generating uniform random variable
         int X = 0;          //initialising poisson random variable
         double fact = 1;    //(numerator)factorial part in pmf
         double pow = 1;     //(denominator)power part in pmf
         //pmf is as in equation (2)
 
-        while (u > pp) { //checking which part of poisson distribution urv is lieing in 
+        while (u > F) { //checking which part of poisson distribution urv is lieing in 
             X++;
             fact *= X; //updating factorial and powers according to the poisson distribution
             pow *= l;
-            pp += (pow / fact) * el; //going up poisson random variable by one step every time
+            F += (pow / fact) * el; //going up poisson random variable by one step every time
         }
         return X;
 }
