@@ -190,7 +190,7 @@ Substituting back we get,
 \end{align}
 \item Simulation\\
 \begin{enumerate}[label=(\roman*)]
-	\item Initialize a Random variable $X$ and equate to 0. Calculate the probability $pp$ for $X=0$ which is $e^{-\lambda} $ from equation (2). 
+	\item Initialize a Random variable $X$ and equate to 0. Calculate the probability $pp$ for $X=0$ which is $e^{-\lambda} $ from equation \eqref{eq:poissondistributionpmf}.
 	\item Generate a Uniform random variable $U$ between 0 and 1 by dividing (double)rand() by RAND\_MAX.
 	\item While $U$ is greater than $pp$, iterate and Increase $X$ by value of 1.Update $pp$ according to poisson distribution to calculate the cumulative distribution for increasing values of $X$.
 	\item When $U$ does not meet the condition the value of random variable $X$ is found and is a Poisson random variable.
