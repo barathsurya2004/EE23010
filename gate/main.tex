@@ -202,11 +202,17 @@ Substituting back we get,
 	\item Increment $X$ by 1
 	\item Add next term of Poisson pmf $\brak{\pr{X=k+1}}$ to $F\brak{x}$
 	\item the loop continues until $u$ is no longer greater than $F$. At this point, X represents the generated value of the poisson random variable that follows the desired poisson distribution with mean parameter $\lambda$.
+	\item Save all the values of poisson random variable $X$ in pois.dat so to open it in python an plot the cdf graph 
 	\item Then for the second part Check if the generated value of $X$ is greater than 0. If $X$ is greater than 0, calculate the value $Y$ as $\frac{1}{X + 1}$ and add it to the sumY.Increment the validCount to keep track of valid $X$ values.
 	\item If validCount is greater than 0, calculate the  estimate of the conditional expectation by dividing sumY by validCount.
 
 \end{enumerate}
 \end{enumerate}
+\begin{figure}[ht!]
+	\includegraphics[width=\columnwidth]{figs/poisson.png}
+	\label{gate17_2023_poissoncdf}
+	\caption{Simulation Vs theoretical cdf of poisson distribution with $\lambda=9$}
+\end{figure}
 \end{document}
 
  
