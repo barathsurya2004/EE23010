@@ -2,28 +2,35 @@ import numpy as np
 import matplotlib.pyplot as plt
 from scipy.stats import poisson
 
-# Read the data from pois.dat
-data = np.loadtxt("pois.dat")
+# Load data from 'pois.dat'
+with open('pois.dat', 'r') as file:
+    data = [int(line.strip()) for line in file]
 
-# Sort the data in ascending order
-data = np.sort(data)
+def cdf_simulation(randvar, data):
+    simlen = len(data)  # Number of samples
+    err = []  # Declaring probability list
 
-# Calculate the empirical CDF
-n = len(data)
-cdf = np.arange(1, n + 1) / n
+    for i in range(0, 30):  # Adjust the range based on your data
+        x = i
+        err_ind = np.count_nonzero(np.array(data) <= x)  # Checking probability condition
+        err_n = err_ind / simlen  # Computing the probability
+        err.append(err_n)  # Storing the probability values in a list
 
-# Calculate the theoretical CDF using scipy's poisson distribution
-l = 9  # Change this to your desired mean
-x = np.arange(0, np.max(data) + 1)
-theoretical_cdf = poisson.cdf(x, l)
+    return err
 
-# Plot the empirical CDF and theoretical CDF with a scatter plot
-plt.step(data, cdf, label="Empirical CDF")
-plt.scatter(x, theoretical_cdf, color='red', marker='x')
-plt.plot(x,theoretical_cdf,label="Theoretical CDF (Poisson)",color='red')
-plt.xlabel("X")
-plt.ylabel("CDF")
-plt.title("Empirical vs. Theoretical CDF of Poisson Distribution")
+# Calculate the CDF using the cdf_simulation function
+simulated_cdf = cdf_simulation(data, data)
+
+# Create a theoretical Poisson distribution with the same lambda (l) value
+l = 9  # Change this to your desired lambda
+theoretical_cdf = poisson.cdf(range(30), mu=l)
+
+# Plot both the simulated and theoretical CDFs
+plt.plot(range(30), simulated_cdf, marker='o', label='Simulated CDF')
+plt.plot(range(30), theoretical_cdf, marker='x', label='Theoretical CDF')
+plt.xlabel('Poisson Random Variable (X)')
+plt.ylabel('CDF')
+plt.title('Simulated vs. Theoretical CDF of Poisson Distribution')
 plt.legend()
-plt.grid()
+plt.grid(True)
 plt.show()
