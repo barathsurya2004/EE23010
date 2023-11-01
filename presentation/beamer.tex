@@ -76,7 +76,7 @@
      \def\centbox#1{\makebox[0in]{#1}}
      \def\topbox#1{\raisebox{-\baselineskip}[0in][0in]{#1}}
      \def\midbox#1{\raisebox{-0.5\baselineskip}[0in][0in]{#1}}
-\title %optional
+\title 
 {GATE 2023 ST 17}
 \author{Barath Surya}
 \institute{IITH}
@@ -118,5 +118,33 @@ Let $X$ be a random variable having Poisson distribution with mean $\lambda>0$. 
         &=\frac{\sum_{k=1}^{\infty}\frac{1}{k+1} e^{-\lambda}\frac{\lambda^k}{k!}}{1-\pr{X\leq 0}}\\
         &=\frac{e^{-\lambda}\sum_{k=1}^{\infty}\frac{\lambda^k}{\brak{k+1}!}}{1-\pr{X=0}}
     \end{align}
+\end{frame}
+\begin{frame}
+    from equation \eqref{eq:poissondistributionpmf}
+\begin{align}
+	&=\frac{e^{-\lambda}\sum_{k=1}^{\infty}\frac{\lambda^k}{\brak{k+1}!}}{1-e^{\lambda}}
+\end{align}
+Now simplifying Just the Summation
+\begin{align}
+	\implies & \sum_{k=1}^{\infty} \frac{\lambda^k}{\brak{k+1}!}\\
+	&=\frac{1}{\lambda} \sum_{k=1}^{\infty} \frac{\lambda^{k+1}}{k+1}
+\end{align}
+Letting $k+1 =m $,
+\begin{align}
+	\implies & \frac{1}{\lambda} \sum_{m=2}^{\infty} \frac{\lambda^m}{m!}
+\end{align}
+\end{frame}
+\begin{frame}
+    We Know from Taylor series
+\begin{align}
+	e^x&=\sum_{k=0}^{\infty} \frac{x^k}{k!}\\
+	\implies \frac{1}{\lambda} \sum_{m=2}^{\infty} \frac{\lambda^m}{m!}&= \frac{1}{\lambda}\brak{e^{\lambda}-1-\lambda}
+\end{align}
+Substituting back we get,
+\begin{align}
+	&=\frac{e^{-\lambda}}{ \brak{1-e^{\lambda}}}\brak{\frac{1}{\lambda} \brak{e^{\lambda}-1-\lambda}}\\
+	&=\frac{e^{-\lambda}}{\lambda \brak{1-e^{\lambda}}}\brak{e^{\lambda}-1 -\lambda}\\
+	&=\frac{1-e^{-\lambda}-\lambda e^{-\lambda}}{\lambda \brak{1-e^{\lambda}}}
+\end{align}
 \end{frame}
 \end{document}
